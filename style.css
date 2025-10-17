@@ -1,0 +1,158 @@
+/*
+Theme Name: Mon Thème
+Text Domain: mon-theme
+Version: 1.0
+Author: Ton Nom
+Description: Thème WordPress from scratch minimal
+*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+.site-nav{
+    width: 90vw;
+}
+
+.nav-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.custom-logo{
+    width: 216px;
+    height: auto;
+    max-height: none;
+}
+
+.site-footer{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+}
+
+.footer-nav{
+    width: 90vw;
+}
+
+.footer-menu{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+#site-content{
+    flex: 1;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.burger-lines,
+.burger-lines::before,
+.burger-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Position des barres */
+.burger-lines {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.burger-lines::before {
+  top: -8px;
+}
+.burger-lines::after {
+  top: 8px;
+}
+
+.site-nav.is-open .burger-lines {
+  background-color: transparent; /* on cache la barre du milieu */
+}
+.site-nav.is-open .burger-lines::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.site-nav.is-open .burger-lines::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .site-header {
+    position: relative;
+    z-index: 10;
+    align-items: center;
+    height: 72px;
+  }
+
+  .site-nav .menu {
+    display: none;
+    padding: 0;
+    opacity: 0;           
+    transform: translateY(-10px);
+    transition: opacity 1s ease, transform 1s ease; 
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .site-nav.is-open .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #E00000;
+    z-index: 11;
+    opacity: 1;   
+    transform: translateY(0); 
+    margin: 0;
+    height: 100vh;
+  }
+}
