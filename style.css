@@ -322,6 +322,32 @@ body {
   object-fit: cover;
 }
 
+.title-liste{
+  margin-left: 5%;
+  font-family: "space_monoregular";
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.liste-photos{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.photo-block{
+  width: 45%;
+  height: 495px;
+}
+
+.photo-block > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} 
+
 @media only screen and (max-width: 480px) {
   .site-header {
     position: relative;

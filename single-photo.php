@@ -27,6 +27,22 @@ $args3 = array(
 
 $prev = new WP_Query($args2);
 $next = new WP_Query($args3);
+
+$args4 = array(
+    'post_type' => 'photo',
+    'posts_per_page' => 2,
+    'post__not_in' => [$post->ID],
+    'orderby' => 'rand',
+    'tax_query' => [
+        [
+            'taxonomy' => $categorie[0]->taxonomy,
+            'field' => 'slug',
+            'terms' => $categorie[0]->name,
+        ],
+    ],
+);
+
+$photos = new WP_Query($args4);
 ?>
 
 <?php
@@ -108,6 +124,15 @@ get_header();
         </div>
     </div>
 </div>
+<?php endif; ?> 
+
+<?php if($photos->have_posts()): ?> 
+    <h3 class="title-liste">Vous aimeriez aussi</h3>
+        <div class="liste-photos">
+            <?php while($photos->have_posts()) : $photos->the_post(); ?>
+                <?= get_template_part('templates_part/photo_block'); ?> 
+            <?php endwhile; ?> 
+        </div>
 <?php endif; ?> 
 
 <?php
