@@ -60,9 +60,61 @@ let url = jQuery('.form-load').attr('action');
 let nonce = jQuery('#nonce').val();
 let action = jQuery('#action').val();
 let paged = 1;
+let images = [];
 
 jQuery('.btn-load').on('click', function(e){
     e.preventDefault();
+    let categorie = jQuery('#categorie').val();
+    let format = jQuery('#format').val();
+    let date = jQuery('#date').val();
     paged++;
-    console.log(paged);
+    
+    jQuery.ajax({
+        type: 'POST',
+        url: url,
+        dataType: 'json',
+        data:{
+            nonce: nonce,
+            action: action,
+            paged: paged,
+            categorie: categorie,
+            format: format,
+            date: date,
+        },
+        success: function(res){
+            if(paged >= res.max){
+                jQuery('.btn-load').hide();
+            }
+            jQuery('.liste-photos').append(res.html);
+        }
+    })
+});
+
+jQuery('#categorie, #format, #date').on('change', function(){
+    paged = 1;
+    let categorie = jQuery('#categorie').val();
+    let format = jQuery('#format').val();
+    let date = jQuery('#date').val();
+    jQuery.ajax({
+        type: 'POST',
+        url: url,
+        dataType: 'json',
+        data:{
+            action: action,
+            nonce: nonce,
+            paged: paged,
+            categorie: categorie,
+            format: format,
+            date: date,
+        },
+        success: function(res){
+            if(paged >= res.max){
+                jQuery('.btn-load').hide();
+            } else{
+                jQuery('.btn-load').show();
+            }
+            jQuery('.liste-photos').empty();
+            jQuery('.liste-photos').append(res.html);
+        }
+    })
 });

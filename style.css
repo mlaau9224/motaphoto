@@ -395,6 +395,45 @@ body {
   border: none;
 }
 
+.select-block{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 80px 0px 40px 0px;
+}
+
+.cat-formats, .date{
+  width: 45%;
+}
+
+.cat-formats{
+  display: flex;
+}
+
+.formats, .trier{
+  display: flex;
+  justify-content: end;
+}
+
+.categories, .formats, .trier{
+  width: 100%;
+}
+
+#categorie, #format, #date{
+  height: 43px;
+  background-color: white;
+  border: 1px solid #B8BBC2;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "poppinsmedium";
+  padding: 0px 10px;
+}
+
+#categorie, #format{
+  width: 92%;
+}
+
 @media only screen and (max-width: 480px) {
   .site-header {
     position: relative;

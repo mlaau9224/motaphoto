@@ -1,5 +1,6 @@
 <?php
 $formats = get_terms('format');
+$categories = get_terms('categorie');
 
 $args = array(
     'post_type' => 'photo',
@@ -41,6 +42,36 @@ get_header();
         </div>  
     </div>
 <?php endif; ?>
+
+<div class="select-block">
+    <div class="cat-formats">
+        <div class="categories">
+            <select name="" id="categorie">
+                <option value="">Catégories</option>
+                <?php foreach($categories as $c): ?>
+                    <option value="<?= $c->name; ?>"><?= $c->name; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="formats">
+            <select name="" id="format">
+                <option value="">Formats</option>
+                <?php foreach($formats as $f): ?>
+                    <option value="<?= $f->name; ?>"><?= $f->name; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+    <div class="date">
+        <div class="trier">
+            <select name="" id="date">
+                <option value="">Trier par</option>
+                <option value="DESC">A partir des plus récentes</option>
+                <option value="ASC">A partir des plus anciennes</option>
+            </select>
+        </div>
+    </div>
+</div>
 
 <?php if($photos->have_posts()): ?>
     <div class="liste-photos">
