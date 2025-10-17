@@ -340,6 +340,7 @@ body {
 .photo-block{
   width: 45%;
   height: 495px;
+  margin: 20px 0px 0px 0px;
 }
 
 .photo-block > img{
