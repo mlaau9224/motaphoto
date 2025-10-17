@@ -61,6 +61,16 @@ let nonce = jQuery('#nonce').val();
 let action = jQuery('#action').val();
 let paged = 1;
 let images = [];
+let currentIndex = -1;
+
+function updateGallery(){
+    images = [];
+    jQuery('.full-screen').each(function(){
+        images.push(this.href);
+    }); 
+}
+
+updateGallery();
 
 jQuery('.btn-load').on('click', function(e){
     e.preventDefault();
@@ -86,6 +96,8 @@ jQuery('.btn-load').on('click', function(e){
                 jQuery('.btn-load').hide();
             }
             jQuery('.liste-photos').append(res.html);
+
+            updateGallery();
         }
     })
 });
@@ -115,6 +127,79 @@ jQuery('#categorie, #format, #date').on('change', function(){
             }
             jQuery('.liste-photos').empty();
             jQuery('.liste-photos').append(res.html);
+
+            updateGallery();
         }
     })
+});
+
+let lightbox = jQuery('.lightbox');
+let lightboxImg = jQuery('.lightbox-container > img');
+let lightboxPrev = jQuery('.lightbox-prev');
+let lightboxNext = jQuery('.lightbox-next');
+let lightboxClose = jQuery('.lightbox-close');
+
+jQuery('.liste-photos').on('mouseenter', '.photo-block', function(){
+    jQuery(this).find('.photo-content').css('opacity', '1');
+});
+
+jQuery('.liste-photos').on('mouseleave', '.photo-block', function(){
+    jQuery(this).find('.photo-content').css('opacity', '0');
+});
+
+jQuery(lightboxClose).on('click', function(){
+    jQuery(lightbox).css('display', 'none');
+});
+
+jQuery('.liste-photos').on('click', '.full-screen', function(e){
+    e.preventDefault();
+    currentIndex = images.indexOf(this.href);
+    jQuery(lightbox).css('display', 'block');
+    jQuery(lightboxImg).attr('src', images[currentIndex]);
+});
+
+jQuery(lightboxNext).on('click', function(){
+    if(currentIndex < images.length - 1){
+        currentIndex++;
+    } else{
+        currentIndex = 0;
+    }
+
+    jQuery(lightboxImg).attr('src', images[currentIndex]);
+});
+
+jQuery(lightboxPrev).on('click', function(){
+    if(currentIndex > 0){
+        currentIndex--;
+    } else{
+        currentIndex = images.length - 1;
+    }
+
+    jQuery(lightboxImg).attr('src', images[currentIndex]);
+});
+
+jQuery(document).on('keydown', function(e){
+    if(e.key === "ArrowRight"){
+        if(currentIndex < images.length - 1){
+            currentIndex++;
+        } else{
+            currentIndex = 0;
+        }
+
+        jQuery(lightboxImg).attr('src', images[currentIndex]);
+    }
+
+    if(e.key === "ArrowLeft"){
+        if(currentIndex > 0){
+            currentIndex--;
+        } else{
+            currentIndex = images.length - 1;
+        }
+
+        jQuery(lightboxImg).attr('src', images[currentIndex]);
+    }
+
+    if(e.key === "Escape"){
+        jQuery(lightbox).css('display', 'none');
+    }
 });
