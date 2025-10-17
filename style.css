@@ -348,6 +348,37 @@ body {
   object-fit: cover;
 } 
 
+.hero{
+  height: 962px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-title{
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.hero-title > h1{
+  -webkit-text-stroke: 3px white;
+  color: transparent;
+  text-transform: uppercase;
+  font-size: 96px;
+  font-family: "space_monobold_italic";
+}
+
 @media only screen and (max-width: 480px) {
   .site-header {
     position: relative;
