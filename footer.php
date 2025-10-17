@@ -1,5 +1,8 @@
 </main>
 
+
+<?php require('templates_part/modal.php'); ?>
+
 <footer class="site-footer">
 	<nav class="footer-nav">
 		<div class="footer-inner">
