@@ -14,10 +14,18 @@ jQuery(document).ready(function(){
 let modal = jQuery('#myModal');
 let btn = jQuery('.contact-modal');
 let closeBtn = jQuery('.close-btn');
+let contactBtn = jQuery('.btn-contact');
 
 jQuery(btn).on('click', function(){
     jQuery(modal).css('display', 'block');
     jQuery('body').css('overflow-y', 'hidden');
+    jQuery('.ref').val(jQuery('.reference').text());
+});
+
+jQuery(contactBtn).on('click', function(){
+    jQuery(modal).css('display', 'block');
+    jQuery('body').css('overflow-y', 'hidden');
+    jQuery('.ref').val(jQuery('.reference').text());
 });
 
 jQuery(closeBtn).on('click', function(){
@@ -30,4 +38,20 @@ jQuery(window).on('click', function(e){
         jQuery(modal).css('display', 'none');
         jQuery('body').css('overflow-y', 'auto');
     }
+});
+
+jQuery('.arrowLeft').on('mouseenter', function(){
+    jQuery('.prevImg').css('display', 'flex');
+});
+
+jQuery('.arrowLeft').on('mouseleave', function(){
+    jQuery('.prevImg').css('display', 'none');
+});
+
+jQuery('.arrowRight').on('mouseenter', function(){
+    jQuery('.nextImg').css('display', 'flex');
+});
+
+jQuery('.arrowRight').on('mouseleave', function(){
+    jQuery('.nextImg').css('display', 'none');
 });
