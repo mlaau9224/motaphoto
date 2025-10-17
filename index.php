@@ -50,6 +50,12 @@ get_header();
     </div>
 <?php endif; ?>
 
+<form action="<?= admin_url('admin-ajax.php'); ?>" method="POST" class="form-load">
+    <input type="hidden" id="action" value="load_posts">
+    <input type="hidden" id="nonce" value="<?= wp_create_nonce('load_posts'); ?>">
+    <button class="btn-load">Charger plus</button>
+</form>
+
 <?php
 get_footer();
 ?>

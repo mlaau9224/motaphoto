@@ -380,6 +380,21 @@ body {
   font-family: "space_monobold_italic";
 }
 
+.form-load{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px;
+}
+
+.btn-load{
+  font-size: 12px;
+  font-family: "space_monoregular";
+  width: 272px;
+  height: 50px;
+  border: none;
+}
+
 @media only screen and (max-width: 480px) {
   .site-header {
     position: relative;

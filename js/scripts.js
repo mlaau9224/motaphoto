@@ -55,3 +55,14 @@ jQuery('.arrowRight').on('mouseenter', function(){
 jQuery('.arrowRight').on('mouseleave', function(){
     jQuery('.nextImg').css('display', 'none');
 });
+
+let url = jQuery('.form-load').attr('action');
+let nonce = jQuery('#nonce').val();
+let action = jQuery('#action').val();
+let paged = 1;
+
+jQuery('.btn-load').on('click', function(e){
+    e.preventDefault();
+    paged++;
+    console.log(paged);
+});
