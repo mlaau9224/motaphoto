@@ -186,7 +186,7 @@ jQuery(lightboxPrev).on('click', function(){
         currentIndex = images.length - 1;
     }
 
-    ipdateLightbox(currentIndex);
+    updateLightbox(currentIndex);
 });
 
 jQuery(document).on('keydown', function(e){
