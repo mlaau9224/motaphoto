@@ -1,4 +1,6 @@
-<?php $categorie = get_the_terms(get_the_ID(), 'categorie'); ?>
+<?php $categorie = get_the_terms(get_the_ID(), 'categorie');
+$reference = get_field_object('reference', get_the_ID());
+?>
 
 <div class="photo-block">
     <?= get_the_post_thumbnail(); ?>
@@ -7,5 +9,6 @@
         <a class="eye-white" href="<?= get_permalink(); ?>"><img src="<?= get_stylesheet_directory_uri() . '/img/eye-white.png' ?>" alt=""></a>
         <p class="title-single"><?= the_title(); ?></p>
         <p class="title-cat"><?= $categorie[0]->name; ?></p>
+        <p class="title-reference"><?= $reference['value']; ?></p>
     </div> 
 </div>

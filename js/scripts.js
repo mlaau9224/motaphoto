@@ -151,11 +151,22 @@ jQuery(lightboxClose).on('click', function(){
     jQuery(lightbox).css('display', 'none');
 });
 
+function updateLightbox(index){
+    jQuery(lightboxImg).attr('src', images[index]);
+
+    let photoBlock = jQuery('.photo-block').eq(index);
+    let categorie = photoBlock.find('.title-cat').text();
+    let reference = photoBlock.find('.title-reference').text();
+    
+    jQuery('.lightbox-categorie').text(categorie);
+    jQuery('.lightbox-reference').text(reference);
+}
+
 jQuery('.liste-photos').on('click', '.full-screen', function(e){
     e.preventDefault();
     currentIndex = images.indexOf(this.href);
     jQuery(lightbox).css('display', 'block');
-    jQuery(lightboxImg).attr('src', images[currentIndex]);
+    updateLightbox(currentIndex);
 });
 
 jQuery(lightboxNext).on('click', function(){
@@ -165,7 +176,7 @@ jQuery(lightboxNext).on('click', function(){
         currentIndex = 0;
     }
 
-    jQuery(lightboxImg).attr('src', images[currentIndex]);
+    updateLightbox(currentIndex);
 });
 
 jQuery(lightboxPrev).on('click', function(){
@@ -175,7 +186,7 @@ jQuery(lightboxPrev).on('click', function(){
         currentIndex = images.length - 1;
     }
 
-    jQuery(lightboxImg).attr('src', images[currentIndex]);
+    ipdateLightbox(currentIndex);
 });
 
 jQuery(document).on('keydown', function(e){
@@ -186,7 +197,7 @@ jQuery(document).on('keydown', function(e){
             currentIndex = 0;
         }
 
-        jQuery(lightboxImg).attr('src', images[currentIndex]);
+        updateLightbox(currentIndex);
     }
 
     if(e.key === "ArrowLeft"){
@@ -196,7 +207,7 @@ jQuery(document).on('keydown', function(e){
             currentIndex = images.length - 1;
         }
 
-        jQuery(lightboxImg).attr('src', images[currentIndex]);
+        updateLightbox(currentIndex);
     }
 
     if(e.key === "Escape"){
