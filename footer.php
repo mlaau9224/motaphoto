@@ -1,7 +1,7 @@
 </main>
 
-
 <?php require('templates_part/modal.php'); ?>
+<?php require('templates_part/lightbox.php'); ?>
 
 <footer class="site-footer">
 	<nav class="footer-nav">
