@@ -214,3 +214,21 @@ jQuery(document).on('keydown', function(e){
         jQuery(lightbox).css('display', 'none');
     }
 });
+
+jQuery('#categorie').select2({
+     minimumResultsForSearch: Infinity
+});
+jQuery('#format').select2({
+     minimumResultsForSearch: Infinity
+});
+jQuery('#date').select2({
+     minimumResultsForSearch: Infinity
+});
+
+
+jQuery('#categorie, #format, #date').on('select2:open', function() {
+    let $dropdown = jQuery(this).data('select2').$dropdown;
+    $dropdown.on('mousedown', '.select2-results__option', function() {
+        jQuery(this).addClass('my-pressing');
+    });
+});

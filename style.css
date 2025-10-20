@@ -351,6 +351,38 @@ body {
   margin: 20px 0px;
 }
 
+.select-block{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 80px 0px 40px 0px;
+}
+
+.cat-formats, .date{
+  width: 45%;
+}
+
+.cat-formats{
+  display: flex;
+}
+
+.categories, .formats, .trier{
+  width: 100%;
+}
+
+.formats, .trier{
+  display: flex;
+  justify-content: end;
+}
+
+.categories > .select2-container, .formats > .select2-container{
+  width: 95% !important;
+}
+
+.trier > .select2-container{
+  width: 47% !important;
+}
+
 .photo-block{
   width: 45%;
   height: 495px;
@@ -460,45 +492,6 @@ body {
   border: none;
 }
 
-.select-block{
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 80px 0px 40px 0px;
-}
-
-.cat-formats, .date{
-  width: 45%;
-}
-
-.cat-formats{
-  display: flex;
-}
-
-.formats, .trier{
-  display: flex;
-  justify-content: end;
-}
-
-.categories, .formats, .trier{
-  width: 100%;
-}
-
-#categorie, #format, #date{
-  height: 43px;
-  background-color: white;
-  border: 1px solid #B8BBC2;
-  border-radius: 8px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-family: "poppinsmedium";
-  padding: 0px 10px;
-}
-
-#categorie, #format{
-  width: 92%;
-}
-
 .lightbox{
   display: none;
   position: fixed;
@@ -571,6 +564,46 @@ body {
   display: none;
 }
 
+.select2-container .select2-selection--single{
+  font-size: 12px;
+  font-family: "poppinsmedium";
+  text-transform: uppercase;
+  height: 43px !important;
+  border-radius: 8px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+  line-height: 43px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+  height: 43px !important;
+}
+
+.select2-results__option--highlighted{
+  background-color: #FFD6D6 !important;
+  color: #313144 !important;
+  font-size: 12px;
+  font-family: "poppinsmedium";
+  text-transform: capitalize;
+}
+
+.my-pressing{
+  background-color: #FE5858 !important;
+  color: #313144 !important;
+  font-size: 12px;
+  font-family: "poppinsmedium";
+  text-transform: capitalize;
+}
+
+.select2-results__option--selected{
+  background-color: #E00000 !important;
+  color: white !important;
+  font-size: 12px;
+  font-family: "poppinsmedium";
+  text-transform: capitalize;
+}
+
 @media only screen and (max-width: 480px) {
   .site-header {
     position: relative;
@@ -636,7 +669,7 @@ body {
   .liste-photos{
       flex-direction: column;
       align-items: center;
-      margin: 20px 0px;
+      margin: 0px 0px;
   }
 
   .photo-block{
@@ -694,27 +727,6 @@ body {
     gap: 2rem;
   }
 
-  .select-block{
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0px 0px 0px;
-  }
-
-  .cat-formats, .date{
-    width: 75%;
-    flex-direction: column;
-  }
-
-  .categories, .formats, .trier{
-     display: flex;
-     justify-content: center;
-     margin: 10px 0px;
-  }
-
-  #date{
-    width: 92%;
-  }
-
   .lightbox-reference, .lightbox-categorie{
     bottom: 0%;
   }
@@ -725,6 +737,26 @@ body {
 
   .lightbox-reference{
     left: 14%;
+  }
+
+  .select-block, .cat-formats, .date, .categories, .formats, .trier{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .select-block{
+    margin: 20px 0px 0px 0px;
+  }
+
+  .categories, .formats, .trier{
+    margin: 0px 0px 10px 0px;
+  }
+
+  .categories > .select2-container, .formats > .select2-container,
+  .trier > .select2-container{
+    width: 75% !important;
   }
 }
 
@@ -756,7 +788,7 @@ body {
   .liste-photos{
     flex-direction: column;
     align-items: center;
-    margin: 20px 0px;
+    margin: 0px 0px;
   }
 
   .photo-block{
@@ -779,12 +811,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-  }
-
-  .select-block{
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0px 0px 0px;
   }
 
   .single-block{
@@ -820,18 +846,23 @@ body {
     margin-left: 0%;
   }
 
-  .cat-formats, .date{
-    width: 75%;
+  .select-block, .cat-formats, .date, .categories, .formats, .trier{
+    width: 100%;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+
+  .select-block{
+    margin: 20px 0px 0px 0px;
   }
 
   .categories, .formats, .trier{
-     display: flex;
-     justify-content: center;
-     margin: 10px 0px;
+    margin: 0px 0px 10px 0px;
   }
 
-  #date{
-    width: 92%;
+  .categories > .select2-container, .formats > .select2-container,
+  .trier > .select2-container{
+    width: 75% !important;
   }
 }
