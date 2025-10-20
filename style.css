@@ -550,14 +550,17 @@ body {
   bottom: 0;
   color: white;
   text-transform: uppercase;
+  font-size: 14px;
 }
 
 .lightbox-categorie{
+  font-family: "space_monoregular";
   right: 32%;
 }
 
 .lightbox-reference{
-  left: 32%
+  font-family: "poppinsmedium";
+  left: 32%;
 }
 
 .title-reference{
