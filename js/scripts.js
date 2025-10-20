@@ -7,6 +7,7 @@ jQuery(document).ready(function(){
         jQuery(nav).toggleClass('is-open');
         let open = jQuery(nav).hasClass('is-open');
         jQuery(btn).attr('aria-expanded', open);
+        jQuery('body').css('overflow', open ? 'hidden' : 'auto');
     });
 });
 
